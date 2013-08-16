@@ -72,9 +72,9 @@
 			}
 		}
 	}
-	////////
-	//// d.querySelector, d.querySelectorAll 은 부분 지원
-	////////
+	/**
+	 * querySelector, querySelectorAll is partly supported
+	 */
 	
 	if (!d.querySelector) {
 		if (d.getElementById && d.getElementsByClassName && d.getElementsByTagName) {
