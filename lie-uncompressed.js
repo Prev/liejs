@@ -35,7 +35,7 @@
 	if (!d.getElementById) {
 		if (d.querySelector) {
 			d.getElementById = function (id) {
-				return d.querySelectorAll("#" + id);
+				return d.querySelector("#" + id);
 			}
 		}else if (d.getElementsByTagName) {
 			d.getElementById = function (id) {
@@ -56,7 +56,7 @@
 		}
 	}
 	if (!d.getElementsByClassName) {
-		if (d.querySelector) {
+		if (d.querySelectorAll) {
 			d.getElementsByClassName = function (className) {
 				return d.querySelectorAll("." + className);
 			}
@@ -65,7 +65,8 @@
 				var t = d.getElementsByTagName("*");
 				var n = new NodeList();
 				for (var i=0; i<t.length; i++){
-					if (t[i].className == className)
+					var classLists = t[i].className.split(" ");
+					if (classLists.indexOf(className) != -1)
 						n.__push(t[i]);
 				}
 				return n;
