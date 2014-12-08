@@ -155,4 +155,10 @@
 	if (!Array.prototype.indexOf) {
 		Array.prototype.indexOf = function(searchElement, fromIndex) { if (!fromIndex) fromIndex = 0; for (var i=fromIndex; i<this.length; i++) { if (this[i] === searchElement) return i; } return -1; }
 	}
+
+	if (typeof String.prototype.trim !== 'function') {
+		String.prototype.trim = function() {
+			return this.replace(/^\s+|\s+$/g, ''); 
+		}
+	}
 })(document,window);
